@@ -75,21 +75,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DjangoAuth.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
 
      'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'atikGohel',
-        'USER' : 'root',
-        'PASSWORD' : '',
-        'HOST': 'localhost',
-        'PORT' : '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'users',
+        'USER' : 'postgres',
+        'PASSWORD' : 'immersive',
+        'HOST': 'database-postgres.cx0fvybfnvzp.us-east-1.rds.amazonaws.com',
+        'PORT' : '5432',
     }
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
@@ -131,11 +129,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Add this line to define the directory where static files will be collected
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Add Manually
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
-
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

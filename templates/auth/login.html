@@ -1,18 +1,23 @@
-&lt;div class="container"&gt;
-    &lt;div class="row"&gt;
-        &lt;div class="clo-12"&gt;
+{% extends 'auth/base.html' %}
+{% block title %}Login{% endblock title %}
 
-            &lt;div class="alert alert-info"&gt;this is Login page&lt;/div&gt;
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="alert alert-info">This is the Login page</div>
             
-            &lt;a href="{% url 'home' %}" class="btn btn-primary mt-3"&gt;Home&lt;/a&gt;
-            &lt;a href="{% url 'signup' %}" class="btn btn-primary mt-3"&gt;SignUp&lt;/a&gt;
-            &lt;br&gt;&lt;br&gt;&lt;br&gt;
-            &lt;form method="post"&gt;
+            <a href="{% url 'home' %}" class="btn btn-primary mt-3">Home</a>
+            <a href="{% url 'signup' %}" class="btn btn-primary mt-3">SignUp</a>
+            <br><br><br>
+            <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                &lt;button type="submit" class="btn btn-primary mt-3"&gt;Login&lt;/button&gt;
-            &lt;/form&gt;
+                <button type="submit" class="btn btn-primary mt-3">Login</button>
+            </form>
             
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+        </div>
+    </div>
+</div>
+{% endblock body %}

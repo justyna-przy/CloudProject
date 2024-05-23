@@ -1,4 +1,5 @@
 {% extends 'auth/base.html' %}
+{% load static %}
 {% block title %}Home{% endblock title %}
 
 {% block body %}
@@ -6,12 +7,18 @@
 <div class="container">
     <div class="row">
         <div class="clo-12">
-            <div class="alert alert-info">this is home page</div>
+            <div class="alert alert-info">Enjoy the chinchillas! :></div>
 
             {% if user.is_authenticated %} 
             
-                Hi {{ user.full_name }}, Welcome to My site!
-                <a href="logout/" class="btn btn-danger">Logout</a> 
+                Hi {{ user.full_name }}, look at the Chinchillas!
+
+                <img src="{% static 'chinchillas.jpg' %}" alt="Chins">
+
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
 
             {% else %}
 

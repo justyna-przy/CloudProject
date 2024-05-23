@@ -1,15 +1,17 @@
-<!DOCTYPE html> {% load static %}
+{% load static %}
+
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %} | Atik Gohel</title>
+    <title>{% block title %}{% endblock title %}My Chinchillas</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
 </head>
 <body>
     <div class="container mt-5">
-        <h3 class="text-center alert alert-danger">Login and Singup Example</h3>
+        <h3 class="text-center alert alert-danger">Do you want to see my Chinchillas?</h3>
     </div>
 
     {% block body %}{% endblock body %}
