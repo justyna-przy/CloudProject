@@ -1,0 +1,55 @@
+# Virtual environment
+env/
+venv/
+
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.so
+*.swp
+*.sqlite3
+*.pyo
+*.pyd
+
+# Test specific
+.coverage
+.tox
+.nox
+.cache
+coverage.xml
+nosetests.xml
+unit.xml
+pytest.xml
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+.idea
+
+# MySQL
+*.sql
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
