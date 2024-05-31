@@ -13,7 +13,8 @@
             
                 Hi {{ user.full_name }}, look at the Chinchillas!
 
-                <img src="{% static 'chinchillas.jpg' %}" alt="Chins">
+                <img src="{{ MEDIA_URL }}20210709_191016.jpg" alt="Image Description">
+
 
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
