@@ -11,6 +11,9 @@ on:
 env:
   IMG_NAME: 'aws'
   USERNAME: "justtyna22"
+  AWS_REGION: 'us-east-1'  # Replace with your AWS region
+  ECR_REPOSITORY: 'cloudproject'  # Replace with your ECR repository name
+  IMAGE_TAG: 'latest'
 
 jobs:
   build:
@@ -48,3 +51,28 @@ jobs:
           context: .
           push: true
           tags: ${{ env.IMG_NAME }}:latest
+
+
+      # Updated part of the workflow that pushes the image to ECR
+      - name: Configure AWS credentials
+        run: |
+          mkdir -p ~/.aws
+          echo "[default]" > ~/.aws/credentials
+          echo "aws_access_key_id=${{ secrets.AWS_ACCESS_KEY_ID }}" >> ~/.aws/credentials
+          echo "aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
+          echo "aws_session_token=${{ secrets.AWS_SESSION_TOKEN }}" >> ~/.aws/credentials
+          echo "[default]" > ~/.aws/config
+          echo "region=${{ env.AWS_REGION }}" >> ~/.aws/config
+
+      - name: Login to Amazon ECR
+        id: ecr-login
+        run: |
+          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com
+
+      - name: Tag Docker image for ECR
+        run: |
+          docker tag ${{ env.IMG_NAME }}:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Push Docker image to ECR
+        run: |
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG   
