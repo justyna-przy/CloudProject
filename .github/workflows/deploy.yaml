@@ -45,15 +45,17 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Build and push Docker image
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ env.IMG_NAME }}:latest .
+
+      - name: Push Docker image to Docker Hub
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
           tags: ${{ env.IMG_NAME }}:latest
 
-
-      # Updated part of the workflow that pushes the image to ECR
       - name: Configure AWS credentials
         run: |
           mkdir -p ~/.aws
@@ -75,4 +77,4 @@ jobs:
 
       - name: Push Docker image to ECR
         run: |
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG   
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
