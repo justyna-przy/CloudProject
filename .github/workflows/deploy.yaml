@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-  IMG_NAME: 'cloud'
+  IMG_NAME: 'aws'
   USERNAME: "justtyna22"
 
 jobs:
