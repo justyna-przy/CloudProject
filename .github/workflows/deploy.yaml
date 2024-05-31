@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-  IMG_NAME: 'chinchilla-site'
+  IMG_NAME: 'cloud'
   USERNAME: "justtyna22"
 
 jobs:
