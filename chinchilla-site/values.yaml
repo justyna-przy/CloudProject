@@ -39,6 +39,16 @@ service:
   port: 80
   targetPort: 8000
 
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
 podAnnotations: {}
 podLabels: {}
 imagePullSecrets: []
