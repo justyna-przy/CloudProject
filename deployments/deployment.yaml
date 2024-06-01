@@ -19,11 +19,6 @@ spec:
         ports:
         - containerPort: 8000
         env:
-        - name: DEBUG
-          value: "True"  # Temporarily for debugging
-        - name: ALLOWED_HOSTS
-          value: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
-        env:
         - name: SECRET_KEY
           valueFrom:
             secretKeyRef:
@@ -54,6 +49,9 @@ spec:
             secretKeyRef:
               name: aws-secrets
               key: DB_PORT
+        - name: ALLOWED_HOSTS
+          value: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
+        command: ["sh", "-c", "printenv | grep ALLOWED_HOSTS && python manage.py runserver 0.0.0.0:8000"]
         # resource limiters
         resources:
           limits:
