@@ -5,6 +5,11 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  name: ""
+
 allowedHosts: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
 
 resources:
