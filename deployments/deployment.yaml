@@ -60,19 +60,19 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
-        # health checks
-        # livenessProbe:
-        #   httpGet:
-        #     path: /healthz
-        #     port: 8000
-        #   initialDelaySeconds: 60
-        #   periodSeconds: 20
-        # readinessProbe:
-        #   httpGet:
-        #     path: /readiness
-        #     port: 8000
-        #   initialDelaySeconds: 60
-        #   periodSeconds: 20
+        health checks
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
       volumes:
       - name: secrets-store-inline
         csi:

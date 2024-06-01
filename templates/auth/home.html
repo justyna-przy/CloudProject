@@ -1,6 +1,5 @@
 {% extends 'auth/base.html' %}
 {% load static %}
-{% block title %}Home{% endblock title %}
 
 {% block body %}
 
@@ -11,7 +10,7 @@
 
             {% if user.is_authenticated %} 
             
-                Hi {{ user.full_name }}, look at the Chinchillas updated image!
+                Hi {{ user.full_name }}, look at the Chinchillas!
 
                 <div style="display: flex; margin: 0 auto;">
                     <img src="https://images-chinchilla-site.s3.amazonaws.com/chins.jpg" alt="Chinchilla Image" style="height: 300px; width: auto; object-fit: contain; ">
@@ -31,6 +30,10 @@
             {% else %}
 
                 You are not logged in!
+                You must be logged in to see these exclusive Chinchillas.
+                If you don't have an account, please sign up below.
+                Fun quiz questions like "What's your mother's maiden name might be asked :3"
+                <h2>&#128513;</h2> 
                 <br>
                 <a href="{% url 'login' %}" class="btn btn-primary mt-3">
                     Log In
