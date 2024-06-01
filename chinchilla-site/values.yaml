@@ -21,16 +21,19 @@ resources:
     cpu: "250m"
 
 livenessProbe:
-  path: /healthz
-  port: 8000
+  httpGet:
+    path: /healthz
+    port: 8000
   initialDelaySeconds: 30
   periodSeconds: 10
 
 readinessProbe:
-  path: /readiness
-  port: 8000
+  httpGet:
+    path: /readiness
+    port: 8000
   initialDelaySeconds: 30
   periodSeconds: 10
+
 
 service:
   type: LoadBalancer
