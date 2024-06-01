@@ -12,6 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = ['http://a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com', 'localhost']
+
+
 
 SECRET_KEY = config('SECRET_KEY')
 

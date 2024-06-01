@@ -1,7 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from authen.forms import SignUpForm
+from django.http import JsonResponse
 # Create your views here.
+
+
+def health_check(request):
+    return JsonResponse({"status": "ok"})
+
+def readiness_check(request):
+    return JsonResponse({"status": "ok"})
 
 
 def home(request):
@@ -23,10 +31,3 @@ def signup(request):
 
 # In your views.py
 
-from django.http import JsonResponse
-
-def health_check(request):
-    return JsonResponse({"status": "ok"})
-
-def readiness_check(request):
-    return JsonResponse({"status": "ok"})
