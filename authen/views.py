@@ -21,10 +21,12 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'auth/signup.html', { 'form' : form })
 
+# In your views.py
 
+from django.http import JsonResponse
 
-# Now we dive into signup() function. It gets user data from HTTP POST request which is handled by SignUpForm, save user to database.
+def health_check(request):
+    return JsonResponse({"status": "ok"})
 
-# Then we use authenticate() function and login() function from django.contrib.auth to log the user in.
-
-# If the process is successful, redirect to homepage, otherwise, return to signup.html template.
+def readiness_check(request):
+    return JsonResponse({"status": "ok"})
