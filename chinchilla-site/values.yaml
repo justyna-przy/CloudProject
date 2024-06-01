@@ -10,7 +10,10 @@ serviceAccount:
   create: true
   name: ""
 
+# allowedHosts: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
+allowedHosts: "a615f1cbd8c844435a3191d5c1c4b21d-930416220.us-east-1.elb.amazonaws.com"
 allowedHosts: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
+
 
 resources:
   limits:
