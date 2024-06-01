@@ -10,10 +10,7 @@ serviceAccount:
   create: true
   name: ""
 
-# allowedHosts: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
 allowedHosts: "a615f1cbd8c844435a3191d5c1c4b21d-930416220.us-east-1.elb.amazonaws.com,a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
-
-
 
 resources:
   limits:
@@ -24,19 +21,16 @@ resources:
     cpu: "250m"
 
 livenessProbe:
-  httpGet:
-    path: /healthz
-    port: 8000
+  path: /healthz
+  port: 8000
   initialDelaySeconds: 30
   periodSeconds: 10
 
 readinessProbe:
-  httpGet:
-    path: /readiness
-    port: 8000
+  path: /readiness
+  port: 8000
   initialDelaySeconds: 30
   periodSeconds: 10
-
 
 service:
   type: LoadBalancer
