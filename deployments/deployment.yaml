@@ -52,7 +52,6 @@ spec:
         - name: ALLOWED_HOSTS
           value: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
         command: ["sh", "-c", "printenv | grep ALLOWED_HOSTS && python manage.py runserver 0.0.0.0:8000"]
-        # resource limiters
         resources:
           limits:
             memory: "512Mi"
@@ -60,7 +59,7 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
-        health checks
+        # health checks
         livenessProbe:
           httpGet:
             path: /healthz

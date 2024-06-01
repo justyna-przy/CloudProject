@@ -1,0 +1,12 @@
+apiVersion: v2
+name: chinchilla-site
+description: A Helm chart for deploying the Chinchilla site
+type: application
+version: 0.1.0
+appVersion: "1.0"
+home: http://a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com
+sources:
+  - https://github.com/atik-gohel/Django-Authentication-Login-Logout-Signup-Custom-User
+maintainers:
+  - name: Justyna
+    email: 23303816@studentmail.ul.ie

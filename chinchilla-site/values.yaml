@@ -1,0 +1,46 @@
+replicaCount: 2
+
+image:
+  repository: 915776808314.dkr.ecr.us-east-1.amazonaws.com/cloudproject
+  tag: latest
+  pullPolicy: IfNotPresent
+
+allowedHosts: "a00047a36485a44a6935875713745ed9-1778033245.us-east-1.elb.amazonaws.com"
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8000
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /readiness
+    port: 8000
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+
+podAnnotations: {}
+podLabels: {}
+imagePullSecrets: []
+podSecurityContext: {}
+securityContext: {}
+volumes: []
+volumeMounts: []
+nodeSelector: {}
+affinity: {}
+tolerations: []
