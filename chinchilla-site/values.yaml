@@ -6,7 +6,6 @@ image:
   pullPolicy: IfNotPresent
 
 serviceAccount:
-  # Specifies whether a service account should be created
   create: true
   name: ""
 
@@ -21,19 +20,16 @@ resources:
     cpu: "250m"
 
 livenessProbe:
-  httpGet:
-    path: /healthz
-    port: 8000
+  path: /healthz
+  port: 8000
   initialDelaySeconds: 30
   periodSeconds: 10
 
 readinessProbe:
-  httpGet:
-    path: /readiness
-    port: 8000
+  path: /readiness
+  port: 8000
   initialDelaySeconds: 30
   periodSeconds: 10
-
 
 service:
   type: LoadBalancer
