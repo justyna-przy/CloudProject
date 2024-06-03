@@ -79,7 +79,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AWS_STORAGE_BUCKET_NAME = 'images-chinchilla-site'
-AWS_S3_REGION_NAME = 'us-east-1'  # e.g., 'us-west-2'
+AWS_S3_REGION_NAME = 'us-east-1'  
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
