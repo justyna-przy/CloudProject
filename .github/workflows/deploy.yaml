@@ -11,8 +11,8 @@ on:
 env:
   IMG_NAME: 'aws'
   USERNAME: "justtyna22"
-  AWS_REGION: 'us-east-1'  # Replace with your AWS region
-  ECR_REPOSITORY: 'cloudproject'  # Replace with your ECR repository name
+  AWS_REGION: 'us-east-1'
+  ECR_REPOSITORY: 'cloudproject' 
   IMAGE_TAG: 'latest'
 
 jobs:
