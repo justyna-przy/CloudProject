@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3
 
 ENV PYTHONDONTWRITEBYTECODE=1
 
@@ -14,8 +14,8 @@ COPY . /code/
 
 RUN python manage.py collectstatic --noinput --settings=DjangoAuth.settings_collectstatic
 
-ENV DJANGO_SETTINGS_MODULE=DjangoAuth.settings
-
 EXPOSE 8000
+
+ENV DJANGO_SETTINGS_MODULE=DjangoAuth.settings
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
